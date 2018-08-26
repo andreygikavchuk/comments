@@ -1,0 +1,52 @@
+.comment_action_form {
+    margin: 0;
+}
+input {
+    display: block;
+    width: 300px;
+    clear: both;
+    line-height: 30px;
+}
+textarea {
+    resize: none;
+    display: block;
+    width: 300px;
+    clear: both;
+}
+.submit_btn {
+    width: 300px;
+    display: block;
+    line-height: 30px;
+    padding: 10px;
+}
+img {
+    max-width: 100%;
+}
+.comments_list {
+    margin: 30px 0;
+}
+.comment {
+    margin: 30px 0;
+}
+
+.comment_action_form .btn{
+    margin: 10px;
+}
+.comment_name {
+    margin: 15px 0;
+}
+.comment_email {
+    margin: 10px 0;
+}
+form {
+    margin: 30px 0;
+}
+#content {
+    min-height: calc(100vh - 200px);
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+.table td, .table th {
+    border: 1px solid #dee2e6;
+}
