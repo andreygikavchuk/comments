@@ -1,11 +1,69 @@
 <?php
 require_once("header.php");
 require_once("dbconnect.php");
-
-
 ?>
 
     <div class="container" id="content">
+        <?php
+        $result = $db->Select("SELECT * FROM comments WHERE comment_status = 'approved'");
+        if (count($result) > 0) { ?>
+            <div id="comments_list" class="comments_list">
+                <h1>Список коментарів </h1>
+                <table class="table comment">
+                    <thead>
+                    <tr>
+                        <th>Інформація про автора</th>
+                        <th>Текст</th>
+                        <th>Дата</th>
+                    </tr>
+                    </thead>
+                    <?php
+
+                    foreach ($result as $item) {
+                        $status = $item['comment_status']; ?>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <?php
+                                if ($item['author_photo']) { ?>
+                                    <div class="comment_img">
+                                        <img src="<?= $item['author_photo'] ?>" alt="<?= $item['author_name'] ?>"
+                                             title="<?= $item['author_name'] ?>">
+                                    </div>
+
+                                <?php }
+                                ?>
+
+                                <h3 class="comment_name">  <?= $item['author_name'] ?></h3>
+                                <a class="comment_email"
+                                   href="mailto:<?= $item['author_email'] ?>">  <?= $item['author_email'] ?></a>
+                            </td>
+                            <td>
+                                <div class="comment_text"><?= $item['comment_text'] ?></div>
+                            </td>
+
+                            <td>
+                         <span class="comment_date">
+                             <?= $date_start = date('d.m.Y', strtotime($item['comment_date'])); ?>
+                         </span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    <?php }
+
+                    $db->Close();
+
+                    if ($result) { ?>
+                </table>
+                <?php
+                }
+                ?>
+            </div>
+        <?php } else { ?>
+            <h1>Коментарів поки що немає </h1>
+        <?php }
+
+        ?>
         <div id="comment_form" class="comment_form">
             <h2>Залиште свій коментар </h2>
             <form method="post" action="create_comment.php" enctype="multipart/form-data">
@@ -30,7 +88,6 @@ require_once("dbconnect.php");
                 <button class="submit_btn btn btn-primary" type="submit">Відправити</button>
             </form>
         </div>
-
     </div>
 <?php
 require_once("footer.php");
