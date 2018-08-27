@@ -1,10 +1,15 @@
 <?php
 require_once("header.php");
 require_once("dbconnect.php");
+
+
 ?>
 
     <div class="container" id="content">
+
+
         <?php
+
         $result = $db->Select("SELECT * FROM comments WHERE comment_status = 'approved'");
         if (count($result) > 0) { ?>
             <div id="comments_list" class="comments_list">
@@ -21,6 +26,8 @@ require_once("dbconnect.php");
 
                     foreach ($result as $item) {
                         $status = $item['comment_status']; ?>
+
+
                         <tbody>
                         <tr>
                             <td>
@@ -48,7 +55,10 @@ require_once("dbconnect.php");
                          </span>
                             </td>
                         </tr>
+
                         </tbody>
+
+
                     <?php }
 
                     $db->Close();
@@ -63,7 +73,10 @@ require_once("dbconnect.php");
             <h1>Коментарів поки що немає </h1>
         <?php }
 
+
         ?>
+
+
         <div id="comment_form" class="comment_form">
             <h2>Залиште свій коментар </h2>
             <form method="post" action="create_comment.php" enctype="multipart/form-data">
@@ -88,6 +101,7 @@ require_once("dbconnect.php");
                 <button class="submit_btn btn btn-primary" type="submit">Відправити</button>
             </form>
         </div>
+
     </div>
 <?php
 require_once("footer.php");

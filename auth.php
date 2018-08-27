@@ -42,6 +42,7 @@ if (isset($_POST["btn_submit_auth"]) && !empty($_POST["btn_submit_auth"])) {
 
 
     if (!$result_query_select) {
+        $_SESSION["error_messages"] .= "<p class='mesage_error' >Ошибка запроса на выборке пользователя из БД</p>";
 
         header("HTTP/1.1 301 Moved Permanently");
         header("Location: " . $address_site . "/form_auth.php");

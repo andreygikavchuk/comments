@@ -110,8 +110,31 @@ $(document).ready(function () {
         node.val(node.val().replace(/[^A-Za-z_\s]/,'') ); }
     );
 
-});
 
+
+
+    var exampleData = {
+        'Опубліковані': $('#approved_num').text(),
+        'В черзі': $('#draft_num').text(),
+        'Відхилено': $('#spam_num').text(),
+    };
+
+    var exampleOptions = {
+        'height': 400,
+        'title': 'Діаграма кількості відгуків',
+        'width': 1000,
+        'fixPadding': 18,
+        'barFont': [0, 12, "bold"],
+        'labelFont': [0, 13, 0]
+    };
+
+    var example = $('#comments_chart');
+
+    graphite(exampleData, exampleOptions, example);
+
+
+
+});
 
 
 

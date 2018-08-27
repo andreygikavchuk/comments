@@ -62,7 +62,15 @@ class DB {
         return self::$mysqli->insert_id;
     }
 
+    public static function CountRows($table, $request = false) {
+        $sql = "SELECT COUNT(*) FROM $table ";
+        $sql .= $request ? $request : '';
+        $result = self::$mysqli->query($sql);
+        $count = $result->fetch_array();
+        $result->free();
+        return $count[0];
 
+    }
 
     public static function Query($sql) {
         return self::$mysqli->query($sql);

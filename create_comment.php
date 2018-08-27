@@ -56,9 +56,16 @@ if (isset($_POST["action"]) && !empty($_POST["action"])) {
         $email = trim($_POST["email"]);
 
         if (!empty($email)) {
+
+
             $email = htmlspecialchars($email, ENT_QUOTES);
+
             $reg_email = "/^[a-z0-9][a-z0-9\._-]*[a-z0-9]*@([a-z0-9]+([a-z0-9-]*[a-z0-9]+)*\.)+[a-z]+/i";
+
+
+
         }
+
     }
 
 

@@ -50,3 +50,7 @@ form {
 .table td, .table th {
     border: 1px solid #dee2e6;
 }
+
+#comments_chart{
+   margin-bottom: 60px;
+}
