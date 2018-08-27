@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-        $(document).on('click', '.comment_action_form button', function (e) {
+    $(document).on('click', '.comment_action_form button', function (e) {
         event.preventDefault();
         var form = $(this).parents('.comment_action_form'),
             action = $(this).data('action'),
@@ -111,24 +111,30 @@ $(document).ready(function () {
 
 
 
-    var exampleData = {
-        'Опубліковані': $('#approved_num').text(),
-        'В черзі': $('#draft_num').text(),
-        'Відхилено': $('#spam_num').text(),
-    };
 
-    var exampleOptions = {
-        'height': 400,
-        'title': 'Діаграма кількості відгуків',
-        'width': 1000,
-        'fixPadding': 18,
-        'barFont': [0, 12, "bold"],
-        'labelFont': [0, 13, 0]
-    };
 
     var example = $('#comments_chart');
 
-    graphite(exampleData, exampleOptions, example);
+
+    if(example.length > 0) {
+        var exampleData = {
+            'Опубліковані': $('#approved_num').text(),
+            'В черзі': $('#draft_num').text(),
+            'Відхилено': $('#spam_num').text(),
+        };
+
+        var exampleOptions = {
+            'height': 400,
+            'title': 'Діаграма кількості відгуків',
+            'width': 1000,
+            'fixPadding': 18,
+            'barFont': [0, 12, "bold"],
+            'labelFont': [0, 13, 0]
+        };
+        graphite(exampleData, exampleOptions, example);
+    }
+
+
 
 
 
