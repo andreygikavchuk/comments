@@ -1,4 +1,5 @@
 <?php
+//Подключение шапки
 require_once("header.php");
 require_once("dbconnect.php");
 
@@ -128,5 +129,6 @@ foreach ($result as $item) {
 
     </div>
 <?php
+//Подключение подвала
 require_once("footer.php");
 ?>
