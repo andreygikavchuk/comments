@@ -1,5 +1,4 @@
 <?php
-//Подключение шапки
 require_once("header.php");
 require_once("dbconnect.php");
 

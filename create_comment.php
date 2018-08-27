@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+require_once("dbconnect.php");
 
 
 $first_name = '';
@@ -33,7 +33,6 @@ if (isset($_FILES)) {
 
 
 if (isset($_POST["action"]) && !empty($_POST["action"])) {
-    $db = new DB('localhost', 'root', 'root', 'test');
     if (isset($_POST["name"])) {
         $first_name = trim($_POST["name"]);
         if (!empty($first_name)) {
