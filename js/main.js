@@ -9,8 +9,6 @@ $(document).ready(function () {
         form.find('.action').val(action);
         form.trigger('submit');
     });
-
-
     $(document).on('submit', '.comment_action_form', function (e) {
         e.preventDefault();
         var value = $(this).serializeArray(),
